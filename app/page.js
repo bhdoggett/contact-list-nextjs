@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
 import ContactList from "./components/ContactList";
+import Link from "next/link";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -20,6 +21,7 @@ export default function Home() {
           <button>Search</button>
         </form>
         <ContactList />
+        <Link href="/add-contact">Add Contact</Link>
       </div>
     </main>
   );

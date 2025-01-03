@@ -25,8 +25,9 @@ const ContactsProvider = ({ children }) => {
 
   const add = async (contact) => {
     try {
-      setContacts([...contacts, contact]);
+      // setContacts([...contacts, contact]);
       axios.post("./contacts.json", contact);
+      get();
     } catch (error) {
       console.log(error);
     }
