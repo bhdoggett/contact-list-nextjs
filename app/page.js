@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        <h1>Contacts Home</h1>
+        <h1 className="title">Contacts Home</h1>
         <form>
           <input
             placeholder="Search Contacts"
