@@ -9,11 +9,11 @@ const AddContact = () => {
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState(null);
   const router = useRouter();
-  const { addContact } = useContacts();
+  const { addContact, getNextId } = useContacts();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addContact({ name, image, phone, email });
+    addContact({ id: getNextId(), name, image, phone, email });
     router.push("/");
   };
 

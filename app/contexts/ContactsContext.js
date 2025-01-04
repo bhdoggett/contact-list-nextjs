@@ -9,13 +9,19 @@ export const useContacts = () => useContext(ContactsContext);
 
 const ContactsProvider = ({ children }) => {
   const [contacts, setContacts] = useState(importedContacts);
+  const [id, setId] = useState(null);
 
   const addContact = (contact) => {
     setContacts([...contacts, contact]);
   };
 
+  const getNextId = () => {
+    const contactIds = contacts.map((contact) => parseInt(contact.id));
+    return Math.max(...contactIds, 0) + 1;
+  };
+
   return (
-    <ContactsContext.Provider value={{ contacts, addContact }}>
+    <ContactsContext.Provider value={{ contacts, addContact, getNextId }}>
       {children}
     </ContactsContext.Provider>
   );

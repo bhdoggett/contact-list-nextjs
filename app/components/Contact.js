@@ -3,7 +3,6 @@ import Image from "next/image";
 
 const Contact = ({ contact }) => {
   const url = contact.image;
-  console.log("url:", url);
 
   return (
     <div className="contact-detail">
