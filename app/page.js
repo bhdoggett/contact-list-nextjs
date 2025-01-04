@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import styles from "./page.module.css";
+// import styles from "./page.module.css";
 import { useState } from "react";
 import ContactList from "./components/ContactList";
 import Link from "next/link";
@@ -9,9 +8,9 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1 className="title">Contacts Home</h1>
+    <main>
+      <h1 className="title">Contacts Home</h1>
+      <div className="search-bar">
         <form>
           <input
             placeholder="Search Contacts"
@@ -20,9 +19,13 @@ export default function Home() {
           ></input>
           <button>Search</button>
         </form>
-        <ContactList />
-        <Link href="/add-contact">Add Contact</Link>
       </div>
+      <ContactList />
+      <Link href="/add-contact">
+        <div className="button-wrapper">
+          <button className="add-contact-button">Add Contact</button>
+        </div>
+      </Link>
     </main>
   );
 }

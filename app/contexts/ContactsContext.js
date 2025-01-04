@@ -1,40 +1,21 @@
 "use client";
 import { useState, createContext, useContext, useEffect } from "react";
 import axios from "axios";
+import importedContacts from "../../public/contacts.json";
 
 export const ContactsContext = createContext();
 
 export const useContacts = () => useContext(ContactsContext);
 
 const ContactsProvider = ({ children }) => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(importedContacts);
 
-  const get = async () => {
-    try {
-      const result = await axios.get("./contacts.json");
-      setContacts(result.data);
-      console.log(contacts);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => get, []);
-
-  console.log(contacts);
-
-  const add = async (contact) => {
-    try {
-      // setContacts([...contacts, contact]);
-      axios.post("./contacts.json", contact);
-      get();
-    } catch (error) {
-      console.log(error);
-    }
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);
   };
 
   return (
-    <ContactsContext.Provider value={{ contacts, add, get }}>
+    <ContactsContext.Provider value={{ contacts, addContact }}>
       {children}
     </ContactsContext.Provider>
   );

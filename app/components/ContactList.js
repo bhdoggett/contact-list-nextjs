@@ -3,11 +3,12 @@ import { useContacts } from "../contexts/ContactsContext";
 import Contact from "./Contact";
 
 const ContactList = () => {
-  const { contacts, get } = useContacts();
+  const { contacts, isLoading } = useContacts();
+  !isLoading && console.log("contacts:", contacts);
 
   return (
     <div>
-      {contacts &&
+      {!isLoading &&
         contacts.map((contact) => {
           return <Contact key={contact.email} contact={contact} />;
         })}

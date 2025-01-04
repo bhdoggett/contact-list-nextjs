@@ -1,61 +1,57 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useContacts } from "../contexts/ContactsContext";
+import { useRouter } from "next/navigation";
 
 const AddContact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState(null);
+  const router = useRouter();
+  const { addContact } = useContacts();
 
-  const { add } = useContacts();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addContact({ name, image, phone, email });
+    router.push("/");
+  };
 
   return (
-    <div className="add-contact-form m-4">
-      <form>
-        <div class="form-group">
-          <label for="name">Name</label>
+    <div className="add-contact">
+      <h1 className="title">Add Contact</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-input">
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
-            class="form-control"
             placeholder="Enter Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
+        <div className="form-input">
+          <label htmlFor="phone">Phone Number</label>
           <input
             type="text"
             id="phone"
-            class="form-control"
-            placeholder="Enter email"
+            placeholder="Enter Phone Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
+        <div className="form-input">
+          <label htmlFor="email">Email Address</label>
           <input
             type="email"
             id="email"
-            class="form-control"
-            placeholder="Enter Phone Number"
+            placeholder="Enter Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          onSubmit={(e) => {
-            e.preventDefault();
-            add({ name, image, phone, email });
-          }}
-        >
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
