@@ -51,6 +51,16 @@ const AddContact = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+        <div className="form-input">
+          <label htmlFor="image-url">Image URL</label>
+          <input
+            type="url"
+            id="image-url"
+            placeholder="Enter Image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>
