@@ -1,28 +1,13 @@
 "use client";
-// import styles from "./page.module.css";
-import { useState } from "react";
-import ContactList from "./components/ContactList";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  const [search, setSearch] = useState("");
+  const router = useRouter();
 
-  return (
-    <main>
-      <h1 className="title">Contacts Home</h1>
-      <div className="search-bar">
-        <input
-          placeholder="Search Contacts"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        ></input>
-      </div>
-      <ContactList search={search} />
-      <Link href="/add-contact">
-        <div className="button-wrapper">
-          <button className="add-contact-button">Add Contact</button>
-        </div>
-      </Link>
-    </main>
-  );
+  useEffect(() => {
+    router.push("/contacts");
+  }, [router]);
+
+  return null;
 }

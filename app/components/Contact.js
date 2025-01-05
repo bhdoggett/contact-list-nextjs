@@ -7,7 +7,7 @@ const Contact = ({ contact }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/contact-detail/${contact.id}`);
+    router.push(`/contacts/${contact.id}`);
   };
 
   return (
