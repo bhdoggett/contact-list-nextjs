@@ -26,13 +26,13 @@
   border-radius: 5px;
   outline: none;
   font-size: 1rem;
-  width: 300px; /* Set a fixed width for the input */
-  box-sizing: border-box; /* Include padding and border in the width */
+  width: 300px;
+  box-sizing: border-box;
 }
 
 .button-wrapper {
   display: flex;
-  justify-content: center; /* Horizontally center */
+  justify-content: center;
 }
 
 .add-contact-button {
@@ -51,24 +51,16 @@
 }
 
 .contact-detail {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.2fr 2fr 1fr 1fr;
+  gap: 20px;
   align-items: center;
-  justify-content: space-between;
   padding: 15px 25px;
   background-color: white;
   margin: 15px auto;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  width: 65%;
-  gap: 20px;
-}
-
-.contact-detail:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
 }
 
 .contact-detail img {
@@ -76,33 +68,51 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
-  margin-right: 5px;
 }
 
-.contact-detail div {
-  flex: 1;
-  font-size: 1.1rem;
-  color: #555;
-  margin-right: 10px;
+.contact-column {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.contact-detail div:last-child {
-  text-align: right;
+.contact-detail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Add Contact form container styling */
+.contact-title {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: white;
+  margin: 15px auto;
+  width: 80%;
+  border-bottom: 1px solid #ddd;
+}
+
+.contact-column.header {
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact-column.phone,
+.contact-column.email {
+  text-align: center;
+}
+
 .add-contact,
 .contact-edit {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center; /* Center vertically */
+  align-items: center;
   padding: 20px;
   margin: 0 auto;
 }
 
-/* Form styling */
 .add-contact form {
   display: flex;
   flex-direction: column;
@@ -111,10 +121,9 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* White background */
+  background-color: #fff;
 }
 
-/* Form input field styling */
 .form-input {
   margin-bottom: 15px;
 }
@@ -138,7 +147,6 @@
   outline: none;
 }
 
-/* Submit button styling */
 .add-contact button,
 .contact-card button,
 .contact-edit button {
@@ -161,7 +169,6 @@
   background-color: #0056b3;
 }
 
-/* Form responsiveness */
 @media (max-width: 768px) {
   .add-contact form {
     padding: 15px;
@@ -179,10 +186,10 @@
 
 .contact-card-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  min-height: 100vh; /* Full height of the viewport */
-  background-color: #f9f9f9; /* Optional: Add a light background color */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
 }
 
 .contact-card {
@@ -194,13 +201,13 @@
     transform 0.2s,
     box-shadow 0.2s;
   cursor: pointer;
-  max-width: 500px; /* Set max width */
-  width: 100%; /* Ensure it adjusts to smaller screens */
-  background-color: white; /* Ensure a white card background */
+  max-width: 500px;
+  width: 100%;
+  background-color: white;
 }
 
 .contact-card img {
-  max-width: 100%; /* Ensure the image fits within the card */
+  max-width: 100%;
   height: auto;
   border-color: #333;
   margin-bottom: 16px;

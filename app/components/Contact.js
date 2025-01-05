@@ -13,9 +13,9 @@ const Contact = ({ contact }) => {
   return (
     <div className="contact-detail" onClick={handleClick}>
       <img src={url} className="img-fluid" />
-      <div className="col-md-2">{contact?.name}</div>
-      <div className="col-md-2">{contact?.phone}</div>
-      <div className="col-md-2">{contact?.email}</div>
+      <div className="contact-column name">{contact?.name}</div>
+      <div className="contact-column phone">{contact?.phone}</div>
+      <div className="contact-column email">{contact?.email}</div>
     </div>
   );
 };

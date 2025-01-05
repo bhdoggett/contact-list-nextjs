@@ -21,9 +21,7 @@ const ContactDetail = () => {
 
   const updateContacts = (e) => {
     e.preventDefault();
-    // const indexToUpdate = contacts.findIndex(
-    //   (contact) => contact.id === updatedItem.id
-    // );
+
     setContacts(
       contacts.map((contact) =>
         contact.id === idNum
@@ -62,6 +60,7 @@ const ContactDetail = () => {
 
       {showEditDetail && (
         <div className="contact-edit">
+          <h1 className="title">Edit Contact</h1>
           <form onSubmit={updateContacts}>
             <div className="form-input">
               <label htmlFor="name">Name</label>
@@ -103,7 +102,6 @@ const ContactDetail = () => {
                 id="image-url"
                 placeholder="Enter Image URL"
                 value={image}
-                required
                 onChange={(e) => setImage(e.target.value)}
               />
             </div>

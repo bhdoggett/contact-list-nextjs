@@ -28,6 +28,7 @@ const AddContact = () => {
             id="name"
             placeholder="Enter Name"
             value={name}
+            required
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -38,6 +39,7 @@ const AddContact = () => {
             id="phone"
             placeholder="Enter Phone Number"
             value={phone}
+            required
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
@@ -48,6 +50,7 @@ const AddContact = () => {
             id="email"
             placeholder="Enter Email"
             value={email}
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
