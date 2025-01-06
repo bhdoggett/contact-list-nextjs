@@ -30,14 +30,14 @@
   {
     "id": 5,
     "name": "Daniel Tiger",
-    "email": "daniel@ptigers.com",
+    "email": "daniel@tigers.com",
     "phone": "(567) 890-1234",
     "image": "https://www.tpt.org/content/uploads/2015/12/daniel-tigers-neighborhood-1920.jpg"
   },
   {
     "id": 6,
     "name": "Margaret Tiger",
-    "email": "margaret@ptigers.com",
+    "email": "margaret@tigers.com",
     "phone": "(678) 901-2345",
     "image": "https://www.neighborhoodarchive.com/images/dtn/characters/margaret01.jpg"
   }

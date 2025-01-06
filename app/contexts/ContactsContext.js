@@ -15,7 +15,6 @@ const ContactsProvider = ({ children }) => {
     setContacts([...contacts, contact]);
   };
 
-  console.log(contacts);
   const getNextId = () => {
     const contactIds = contacts.map((contact) => parseInt(contact.id));
     return Math.max(...contactIds, 0) + 1;

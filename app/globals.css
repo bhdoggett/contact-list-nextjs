@@ -52,7 +52,7 @@
 
 .contact-detail {
   display: grid;
-  grid-template-columns: 0.2fr 2fr 1fr 1fr;
+  grid-template-columns: 0.3fr 1fr 1fr 1fr 0.5fr 0.5fr;
   gap: 20px;
   align-items: center;
   padding: 15px 25px;
@@ -77,13 +77,13 @@
 }
 
 .contact-detail:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact-title {
   display: grid;
-  grid-template-columns: 0.2fr 2fr 1fr 1fr;
+  grid-template-columns: 0.3fr 1fr 1fr 1fr 0.5fr 0.5fr;
   gap: 20px;
   align-items: center;
   padding: 15px 25px;
@@ -164,9 +164,33 @@
   margin: 10px auto;
 }
 
+.contact-detail button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  width: 50%;
+  display: block;
+  justify-content: right;
+  margin: 0;
+}
+
 .add-contact button,
-.contact-card button:hover {
+.contact-card button,
+.contact-detail button:hover {
   background-color: #0056b3;
+}
+
+.contact-detail .delete {
+  background-color: #ff0000;
+}
+
+.contact-detail .delete:hover {
+  background-color: #c00000;
 }
 
 @media (max-width: 768px) {

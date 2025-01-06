@@ -10,15 +10,13 @@ const ContactList = ({ search }) => {
     contact.name.toLowerCase().includes(search)
   );
 
-  console.log("contacts:", contacts);
-
   return (
     <>
       <div className="contact-title">
-        <div class="contact-column "></div>
-        <div class="contact-column header">Name</div>
-        <div class="contact-column header phone">Phone Number</div>
-        <div class="contact-column header email">E-mail</div>
+        <div className="contact-column "></div>
+        <div className="contact-column header">Name</div>
+        <div className="contact-column header phone">Phone Number</div>
+        <div className="contact-column header email">E-mail</div>
       </div>
       {filterdContacts.map((contact) => {
         return <Contact key={contact.id} contact={contact} />;

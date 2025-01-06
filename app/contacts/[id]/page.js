@@ -7,10 +7,22 @@ import Link from "next/link";
 const ContactDetail = () => {
   const [showDetail, setShowDetail] = useState(true);
   const [showEditDetail, setShowEditDetail] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+  const [contactExists, setContactExists] = useState(true);
   const { contacts, setContacts } = useContacts();
-
   const { id } = useParams();
   const idNum = Number(id);
+
+  if (!contacts.find((contact) => contact.id === idNum)) {
+    return (
+      <div>
+        <h2>No contact matches ID: {id}</h2>
+        <Link href="/contacts">
+          <button>Back to Contacts</button>
+        </Link>
+      </div>
+    );
+  }
 
   const contact = contacts.filter((contact) => contact.id === idNum)[0];
 
@@ -19,7 +31,7 @@ const ContactDetail = () => {
   const [phone, setPhone] = useState(contact?.phone || "");
   const [image, setImage] = useState(contact?.image || "");
 
-  const updateContacts = (e) => {
+  const updateContact = (e) => {
     e.preventDefault();
 
     setContacts(
@@ -36,7 +48,7 @@ const ContactDetail = () => {
 
   return (
     <div>
-      {showDetail && (
+      {showDetail && !isDeleted && (
         <div class="contact-card-container">
           <div className="contact-card">
             <img src={contact?.image} />
@@ -61,7 +73,7 @@ const ContactDetail = () => {
       {showEditDetail && (
         <div className="contact-edit">
           <h1 className="title">Edit Contact</h1>
-          <form onSubmit={updateContacts}>
+          <form onSubmit={updateContact}>
             <div className="form-input">
               <label htmlFor="name">Name</label>
               <input
