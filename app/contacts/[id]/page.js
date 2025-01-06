@@ -7,8 +7,6 @@ import Link from "next/link";
 const ContactDetail = () => {
   const [showDetail, setShowDetail] = useState(true);
   const [showEditDetail, setShowEditDetail] = useState(false);
-  const [isDeleted, setIsDeleted] = useState(false);
-  const [contactExists, setContactExists] = useState(true);
   const { contacts, setContacts } = useContacts();
   const { id } = useParams();
   const idNum = Number(id);
