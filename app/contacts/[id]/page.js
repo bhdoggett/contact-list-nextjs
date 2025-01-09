@@ -46,7 +46,7 @@ const ContactDetail = () => {
 
   return (
     <div>
-      {showDetail && !isDeleted && (
+      {showDetail && (
         <div class="contact-card-container">
           <div className="contact-card">
             <img src={contact?.image} />
